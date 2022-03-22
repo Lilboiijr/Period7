@@ -9,3 +9,13 @@ C:\Users\cbbre529\source\repos\CIS159\DrawingApp\obj\Debug\DrawingApp.vbproj.Gen
 C:\Users\cbbre529\source\repos\CIS159\DrawingApp\obj\Debug\DrawingApp.exe
 C:\Users\cbbre529\source\repos\CIS159\DrawingApp\obj\Debug\DrawingApp.xml
 C:\Users\cbbre529\source\repos\CIS159\DrawingApp\obj\Debug\DrawingApp.pdb
+C:\Users\cbbre529\source\repos\Period7\DrawingApp\bin\Debug\DrawingApp.exe.config
+C:\Users\cbbre529\source\repos\Period7\DrawingApp\bin\Debug\DrawingApp.exe
+C:\Users\cbbre529\source\repos\Period7\DrawingApp\bin\Debug\DrawingApp.pdb
+C:\Users\cbbre529\source\repos\Period7\DrawingApp\bin\Debug\DrawingApp.xml
+C:\Users\cbbre529\source\repos\Period7\DrawingApp\obj\Debug\WindowsApplication1.Form1.resources
+C:\Users\cbbre529\source\repos\Period7\DrawingApp\obj\Debug\WindowsApplication1.Resources.resources
+C:\Users\cbbre529\source\repos\Period7\DrawingApp\obj\Debug\DrawingApp.vbproj.GenerateResource.cache
+C:\Users\cbbre529\source\repos\Period7\DrawingApp\obj\Debug\DrawingApp.exe
+C:\Users\cbbre529\source\repos\Period7\DrawingApp\obj\Debug\DrawingApp.xml
+C:\Users\cbbre529\source\repos\Period7\DrawingApp\obj\Debug\DrawingApp.pdb
