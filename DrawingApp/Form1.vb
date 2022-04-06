@@ -1,7 +1,7 @@
 ﻿Public Class Form1
     Private m_Previous As System.Nullable(Of Point) = Nothing
     Dim m_shapes As New Collection
-
+    Dim type As String
 
 
     Private Sub pictureBox1_MouseDown(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseDown
@@ -11,9 +11,18 @@
 
     Private Sub pictureBox1_MouseMove(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseMove
         If m_Previous IsNot Nothing Then
-            Dim l As New Line(PictureBox1.Image, m_Previous, e.Location)
-            l.Pen = New Pen(Button1.BackColor)
-            m_shapes.Add(l)
+            Dim d As Object
+
+            If Type = "Line" Then
+                d = New Line(PictureBox1.Image, m_Previous, e.Location)
+                d.Pen = New Pen(c, w)
+            End If
+            If Type = "Rectangle" Then
+                d = New Rect(PictureBox1.Image, m_Previous, e.Location)
+                d.Pen = New Pen(c, w)
+            End If
+
+            m_shapes.Add(d)
             PictureBox1.Invalidate()
             m_Previous = e.Location
         End If
@@ -59,5 +68,9 @@
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         SaveFileDialog1.ShowDialog()
         PictureBox1.Image.Save(SaveFileDialog1.FileName)
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Type = "polygon"
     End Sub
 End Class
