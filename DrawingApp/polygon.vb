@@ -12,6 +12,8 @@
         m_b = b
     End Sub
     Public Sub Draw()
+        'jhhghg
+        'h
         Using g As Graphics = Graphics.FromImage(m_image)
             Dim points(2) As Point
             points(0) = New Point(m_a.X, m_a.Y)
