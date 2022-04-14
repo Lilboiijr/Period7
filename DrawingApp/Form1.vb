@@ -1,6 +1,8 @@
 ﻿Public Class Form1
     Private m_Previous As System.Nullable(Of Point) = Nothing
     Dim m_shapes As New Collection
+    Dim c As Color
+    Dim w As Integer
     Dim type As String
 
 
@@ -10,22 +12,42 @@
     End Sub
 
     Private Sub pictureBox1_MouseMove(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseMove
+
         If m_Previous IsNot Nothing Then
             Dim d As Object
+            If type = "rectangle" Then
+                d = New Rectangle(PictureBox1.Image, m_Previous, e.Location)
+                d.Pen = New Pen(c, w)
 
-            If Type = "Line" Then
+            End If
+            If type = "Pie" Then
+                d = New pie(PictureBox1.Image, m_Previous, e.Location)
+                d.Pen = New Pen(c, w)
+            End If
+            If type = "arc" Then
+                d = New arc(PictureBox1.Image, m_Previous, e.Location)
+                d.Pen = New Pen(c, w)
+            End If
+            If type = "Line" Then
                 d = New Line(PictureBox1.Image, m_Previous, e.Location)
                 d.Pen = New Pen(c, w)
             End If
-            If Type = "Rectangle" Then
-                d = New Rect(PictureBox1.Image, m_Previous, e.Location)
+            If type = "ngon" Then
+                d = New ngon(PictureBox1.Image, m_Previous, e.Location)
+                d.Pen = New Pen(c, w)
+                d.radius = TrackBar3.Value
+                d.sides = TrackBar2.Value
+
+            End If
+            If type = "polygon" Then
+                d = New Polygon(PictureBox1.Image, m_Previous, e.Location)
                 d.Pen = New Pen(c, w)
             End If
-
             m_shapes.Add(d)
             PictureBox1.Invalidate()
             m_Previous = e.Location
         End If
+
     End Sub
 
     Private Sub pictureBox1_MouseUp(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseUp
@@ -43,34 +65,55 @@
     End Sub
 
     Private Sub PictureBox1_Paint(sender As Object, e As PaintEventArgs) Handles PictureBox1.Paint
-        For Each s As Line In m_shapes
+        For Each s As Object In m_shapes
             s.Draw()
         Next
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ColorDialog1.ShowDialog()
-        Button1.BackColor = ColorDialog1.Color
+        c = ColorDialog1.Color
+        Button1.BackColor = c
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
-    End Sub
-
-    Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
-
+        c = sender.backcolor
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        c = sender.backcolor
+    End Sub
 
+    Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
+        w = TrackBar1.Value
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        SaveFileDialog1.ShowDialog()
-        PictureBox1.Image.Save(SaveFileDialog1.FileName)
+        type = "Line"
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        type = "Rectangle"
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Type = "polygon"
+        type = "ngon"
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        type = "polygon"
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        type = "rectangle"
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        type = "Pie"
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        type = "arc"
     End Sub
 End Class

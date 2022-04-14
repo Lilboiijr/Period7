@@ -1,4 +1,4 @@
-﻿Public Class Polygon
+﻿Public Class arc
     Dim points(2) As Point
     Public Property pen As Pen
     Dim m_image As Image
@@ -6,7 +6,7 @@
     Dim m_b As Point
 
     Public Sub New(i As Image, a As Point, b As Point)
-        Pen = Pens.Red
+        pen = Pens.Red
         m_image = i
         m_a = a
         m_b = b
@@ -14,15 +14,12 @@
     Public Sub Draw()
         Using g As Graphics = Graphics.FromImage(m_image)
             Dim points(2) As Point
-            points(0) = New Point(m_a.X, m_a.Y)
-            points(1) = New Point(m_a.X, m_a.Y + 50)
-            points(2) = New Point(m_a.X + 50, m_a.Y)
+            g.DrawArc(pen, m_a.X, m_a.Y, 100, 100, 0, 90)
 
-            g.DrawPolygon(pen, points)
+
 
 
         End Using
 
     End Sub
-
 End Class
